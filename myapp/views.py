@@ -6,8 +6,12 @@ from .models import CreateAccount
 from decimal import Decimal
 
 def home(request):
-    exits=CreateAccount.objects.filter(user=request.user).first()
-    return render(request,'app/home.html',{'exits':exits})
+    exits = None
+
+    if request.user.is_authenticated:
+        exits = CreateAccount.objects.filter(user=request.user).first()
+
+    return render(request,'app/home.html',{'exits': exits})
 
 @login_required
 def services_view(request):
