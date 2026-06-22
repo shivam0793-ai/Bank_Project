@@ -1,0 +1,37 @@
+{% extends 'app/header.html' %}
+{% load static %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/create_account.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="account-page">
+    <div class="account-box">
+        <div class="account-header">
+
+            <h2>Create Bank Account</h2>
+            <p>
+                Join SecureBridge Bank and start managing your finances securely.
+            </p>
+        </div>
+
+        <form method="post" class="account-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <button type="submit" class="submit-btn">
+                Create Account
+            </button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block js %}
+<link rel="stylesheet" href="{% static 'js/login.js' %}">
+<script src="{% static 'js/createacc.js' %}"></script>
+{% endblock %}

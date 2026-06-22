@@ -1,0 +1,141 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:linear-gradient(180deg,#f8fbff,#edf5ff);
+}
+
+main{
+    min-height:85vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px 20px;
+}
+
+.home-container{
+    width:100%;
+    max-width:1100px;
+    text-align:center;
+}
+
+.home-container h1{
+    font-size:58px;
+    color:#0b3d91;
+    margin-bottom:20px;
+    font-weight:700;
+}
+
+.home-container h1 span{
+    color:#0d6efd;
+}
+
+.home-container p{
+    max-width:750px;
+    margin:auto;
+    font-size:18px;
+    line-height:1.9;
+    color:#5f6368;
+    margin-bottom:40px;
+}
+
+.home-btn{
+    display:inline-block;
+    text-decoration:none;
+    padding:15px 45px;
+    background:#0d6efd;
+    color:#fff;
+    border-radius:50px;
+    font-size:18px;
+    font-weight:600;
+    transition:.3s;
+    box-shadow:0 10px 25px rgba(13,110,253,.25);
+}
+
+.home-btn:hover{
+    background:#084298;
+    transform:translateY(-5px);
+}
+
+.feature-box{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:25px;
+    margin-top:70px;
+}
+
+.feature{
+    width:260px;
+    padding:30px 20px;
+    background:rgba(255,255,255,.75);
+    border:1px solid #dce9ff;
+    border-radius:18px;
+    transition:.3s;
+}
+
+.feature:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+}
+
+.feature i{
+    font-size:45px;
+    color:#0d6efd;
+    margin-bottom:20px;
+}
+
+.feature h3{
+    color:#0b3d91;
+    margin-bottom:12px;
+    font-size:22px;
+}
+
+.feature p{
+    font-size:15px;
+    color:#666;
+    margin:0;
+    line-height:1.7;
+}
+
+@media(max-width:992px){
+
+    .home-container h1{
+        font-size:46px;
+    }
+
+    .home-container p{
+        font-size:17px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    main{
+        padding:50px 15px;
+    }
+
+    .home-container h1{
+        font-size:34px;
+    }
+
+    .home-container p{
+        font-size:16px;
+    }
+
+    .feature{
+        width:100%;
+    }
+
+    .home-btn{
+        width:100%;
+        max-width:300px;
+    }
+
+}

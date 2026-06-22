@@ -1,0 +1,59 @@
+{% extends 'app/header.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="home-container">
+
+    <div class="home-card">
+
+        <h1>Welcome to SecureBridge Bank</h1>
+
+        <p>
+            Experience secure banking with instant transactions,
+            loan services, account management, and personalized
+            financial solutions designed for your future.
+        </p>
+
+        {% if request.user.is_authenticated %}
+          {% if exits %}
+          <a href="{% url 'services' %}" class="home-btn">
+             Visit Services
+          </a>
+          {% else %}
+          <a href="{% url 'createaccount' %}"><button class="btn btn-primary">Create Account</button></a>
+           {% endif %}
+        {% else %}
+        <a href="{% url 'login' %}" class="text-decoration-none btn btn-primary text-center mt-3">Login</a>
+               
+        <a href="{% url 'signup' %}" class="text-decoration-none text-center mt-3 btn btn-success">Signup</a></button>
+        {% endif %}
+
+        <div class="feature-box">
+
+            <div class="feature">
+                <h3>Secure Banking</h3>
+                <p>Protected transactions with advanced security.</p>
+            </div>
+
+            <div class="feature">
+                <h3>Quick Loans</h3>
+                <p>Fast approval process with flexible repayment.</p>
+            </div>
+
+            <div class="feature">
+                <h3>24/7 Support</h3>
+                <p>Our team is always available to assist you.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}
+{% block footer %}
+{% endblock %}

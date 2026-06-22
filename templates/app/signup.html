@@ -1,0 +1,51 @@
+{% extends 'app/header.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="login-container">
+    <div class="login-box">
+        <h2>Create Account</h2>
+        <p>Open your SecureBridge Bank account</p>
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                {{ form.username }}
+                {{ form.username.errors }}
+            </div>
+
+            <div class="mb-3">
+                {{ form.email }}
+                {{ form.email.errors }}
+            </div>
+
+            <div class="mb-3">
+                {{ form.password1 }}
+                {{ form.password1.errors }}
+            </div>
+
+            <div class="mb-3">
+                {{ form.password2 }}
+                {{ form.password2.errors }}
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">
+                Sign Up
+            </button>
+
+            <p class="text-center mt-3 mb-0">
+               Already have an account?
+                <a href="{% url 'login' %}" class="text-decoration-none fw-bold">
+                    Login
+                </a>
+            </p>
+        </form>
+    </div>
+</div>
+{% endblock %}
+{% block js %}
+<script src="{% static 'js/login.js' %}"></script>
+{% endblock %}

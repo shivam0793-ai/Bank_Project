@@ -1,0 +1,170 @@
+{% extends 'app/header.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/services.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="service-section">
+
+    <div class="service-heading">
+
+        <h1>Our Banking Services</h1>
+
+        <p>
+            Fast, secure and reliable banking solutions designed to make
+            your financial journey simple and convenient.
+        </p>
+
+    </div>
+
+    <div class="service-container">
+
+        <div class="service-card">
+            <i class="bi bi-cash-stack"></i>
+            <h3>Deposit Money</h3>
+            <p>Deposit funds securely into your account anytime.</p>
+            <button class="btn btn-primary rounded-end-5" data-bs-target="#Deposit_model" data-bs-toggle="modal" >Visit</button>
+        </div>
+
+        <div class="service-card">
+            <i class="bi bi-wallet2"></i>
+            <h3>Withdraw Money</h3>
+            <p>Withdraw money instantly with complete security.</p>
+            <button class="btn btn-primary" data-bs-target="#withdraw_model" data-bs-toggle="modal">Visit</button>
+        </div>
+
+        <div class="service-card">
+            <i class="bi bi-arrow-left-right"></i>
+            <h3>Transfer Money</h3>
+            <p>Transfer funds quickly between different accounts.</p>
+            <a href="{% url 'money_transfer' %}" class="service-btn">Visit</a>
+        </div>
+
+        <div class="service-card">
+            <i class="bi bi-credit-card-fill"></i>
+            <h3>Loan Services</h3>
+            <p>Apply for personal and business loans easily.</p>
+            <a href="{% url 'loans' %}" class="service-btn">Visit</a>
+        </div>
+
+        <div class="service-card">
+            <i class="bi bi-person-circle"></i>
+            <h3>Profile</h3>
+            <p>Manage your personal information and account settings.</p>
+            <a href="{% url 'profileview' %}" class="service-btn">Visit</a>
+        </div>
+
+
+        <div class="service-card">
+            <i class="bi bi-person-circle"></i>
+            <h3>Balance</h3>
+            <p>Current Balance.</p>
+            <button class="btn btn-primary" data-bs-target="#current_balane" data-bs-toggle="modal">Visit</button>
+        </div>
+
+    </div>
+
+</section>
+
+
+<div class="modal fade" id="Deposit_model" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title">Deposit Money</h5>
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal">
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <form action="{% url 'deposit' %}" method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label class="form-label">
+                            Amount
+                        </label>
+                        <input
+                            type="number"
+                            name="amount"
+                            min="1"
+                            class="form-control"
+                            placeholder="Enter amount">
+                    </div>
+                   <button
+                        type="submit"
+                        class="btn btn-success w-100">
+                        Deposit
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="withdraw_model" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title">Withdraw Money</h5>
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal">
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <form action="{% url 'withdraw' %}" method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label class="form-label">
+                            Amount
+                        </label>
+                        <input
+                            type="number"
+                            name="amount"
+                            min="1"
+                            class="form-control"
+                            placeholder="Enter amount">
+                    </div>
+                   <button
+                        type="submit"
+                        class="btn btn-success w-100">
+                        Withdraw
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="current_balane" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Current Balance</h5>
+                <button type="button" class="btn btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                {{bal}}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/services.js' %}"></script>
+{% endblock %}
+{% block footer %}{% endblock %}
