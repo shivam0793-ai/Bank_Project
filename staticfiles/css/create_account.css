@@ -1,0 +1,208 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:linear-gradient(135deg,#eef7ff,#f8fbff);
+}
+
+.account-page{
+
+    min-height:85vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px 20px;
+
+}
+
+.account-box{
+
+    width:100%;
+
+    max-width:850px;
+
+    background:rgba(255,255,255,.92);
+
+    backdrop-filter:blur(10px);
+
+    border-radius:25px;
+
+    padding:40px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+    animation:slideUp .8s ease;
+
+}
+
+.account-header{
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+}
+
+.account-header h2{
+
+    color:#0b3d91;
+
+    font-size:36px;
+
+    margin-bottom:10px;
+
+}
+
+.account-header p{
+
+    color:#666;
+
+    font-size:16px;
+
+}
+
+.account-form{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+}
+
+.account-form p{
+
+    display:flex;
+
+    flex-direction:column;
+
+    margin:0;
+
+}
+
+.account-form label{
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+    color:#333;
+
+}
+
+.account-form input,
+.account-form select,
+.account-form textarea{
+
+    width:100%;
+
+    padding:12px 15px;
+
+    border:1px solid #d8e4ff;
+
+    border-radius:12px;
+
+    outline:none;
+
+    transition:.3s;
+
+    background:#fff;
+
+}
+
+.account-form input:focus,
+.account-form select:focus{
+
+    border-color:#0d6efd;
+
+    box-shadow:0 0 10px rgba(13,110,253,.15);
+
+}
+
+.submit-btn{
+
+    grid-column:1/-1;
+
+    border:none;
+
+    padding:15px;
+
+    background:#0d6efd;
+
+    color:#fff;
+
+    font-size:18px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    margin-top:10px;
+
+}
+
+.submit-btn:hover{
+
+    background:#084298;
+
+    transform:translateY(-3px);
+
+}
+
+.errorlist{
+
+    list-style:none;
+
+    color:#dc3545;
+
+    font-size:14px;
+
+    margin-top:5px;
+
+}
+
+@keyframes slideUp{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@media(max-width:768px){
+
+    .account-box{
+
+        padding:25px;
+
+    }
+
+    .account-form{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .account-header h2{
+
+        font-size:28px;
+
+    }
+
+}
